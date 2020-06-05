@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 script {
-                    docker.withRegistry('localhost:5000') {
+                    docker.withRegistry('http://localhost:5000') {
                       docker.build("localhost:5000/spring-boot-demo:${env.BUILD_TAG}").push()
                     }
                 }
