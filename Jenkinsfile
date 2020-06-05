@@ -20,8 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                bat 'docker build --rm -t abcollins31/spring-boot-demo .'
-                bat 'docker tag abcollins31/spring-boot-demo myhost:8081/demo/spring-boot-demo'
+                docker.build 'abcollins31/spring-boot-demo:${env.BUILD_TAG}'
             }
         }
     }
